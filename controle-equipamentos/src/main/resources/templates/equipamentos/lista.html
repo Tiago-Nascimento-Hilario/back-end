@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Equipamentos</title>
+</head>
+<body>
+<h2>Equipamentos Cadastrados</h2>
+<a href="/equipamentos/novo">Novo Equipamento</a>
+<br/><br/>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Modelo</th>
+        <th>Número de Série</th>
+        <th>Localização</th>
+    </tr>
+    <tr th:each="equipamento : ${equipamentos}">
+        <td th:text="${equipamento.id}"></td>
+        <td th:text="${equipamento.nome}"></td>
+        <td th:text="${equipamento.modelo}"></td>
+        <td th:text="${equipamento.numeroSerie}"></td>
+        <td th:text="${equipamento.localizacao}"></td>
+    </tr>
+</table>
+</body>
+</html>

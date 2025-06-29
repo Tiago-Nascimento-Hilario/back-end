@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chamados</title>
+</head>
+<body>
+<h2>Chamados do equipamento: <span th:text="${equipamento.nome}"></span></h2>
+<a th:href="@{'/chamados/novo'+ ${equipamento.id}">Novo chamado</a><br><br>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Titulo</th>
+        <th>Status</th>
+        <th>Data de Abertura</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="chamado : ${chamados}">
+        <td th:text="${chamado.id}"></td>
+        <th th:text="${chamado.titulo}"></th>
+        <th th:text="${chamado.status}"></th>
+        <th th:text="${chamado.dataAbertura}"></th>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a th:href="@{/equipamnetos}">Voltar para equipamentos</a>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Chamado</title>
+</head>
+<body>
+<h2>Novo chamado para<span th:text="${chamado.equipamento.nome}"></span></h2>
+<form th:action="@{/chamados}" th:object="${chamado}" method="post">
+
+    <input type="hidden" th:field="*{equipamento.id}"/>
+
+    <label>Titulo:</label><br/>
+    <label>
+        <input type="text" th:field="*{titulo}"/>
+    </label>
+
+    <label>Descrição:</label><br/>
+    <label>
+        <textarea th:field="*{descrição}"></textarea>
+    </label><br/>
+
+    <label>status:</label>
+    <label>
+        <select th:field="*{status}">
+            <option th:each="s:${statusList}" th:value="${s}" th:text="${s}"></option>
+        </select>
+    </label><br/><br/>
+
+    <button type="submit">Salvar chamado</button>
+
+</form>
+<br/>
+<a th:href="@{/equipamentos}">Voltar para equipamnetos</a>
+</body>
+</html>

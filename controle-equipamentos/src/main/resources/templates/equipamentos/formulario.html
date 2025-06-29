@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Equipamento</title>
+</head>
+<body>
+<h2>Cadastrar Equipamento</h2>
+<form th:action="@{/equipamentos}" th:object="${equipamento}" method="post">
+    <label>Nome:</label><br/>
+    <input type="text" th:field="*{nome}" /><br/>
+
+    <label>Modelo:</label><br/>
+    <input type="text" th:field="*{modelo}" /><br/>
+
+    <label>Número de Série:</label><br/>
+    <input type="text" th:field="*{numeroSerie}" /><br/>
+
+    <label>Localização:</label><br/>
+    <input type="text" th:field="*{localizacao}" /><br/>
+
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>
